@@ -2549,7 +2549,7 @@ static int ft5x06_ts_probe(struct i2c_client *client,
 		goto free_force_update_fw_sys;
 	}
 
-	temp = debugfs_create_file("addr", S_IRUSR | S_IWUSR, data->dir, data,
+	temp = debugfs_create_file("addr", 0600, data->dir, data,
 				   &debug_addr_fops);
 	if (temp == NULL || IS_ERR(temp)) {
 		pr_err("debugfs_create_file failed: rc=%ld\n", PTR_ERR(temp));
@@ -2557,7 +2557,7 @@ static int ft5x06_ts_probe(struct i2c_client *client,
 		goto free_debug_dir;
 	}
 
-	temp = debugfs_create_file("data", S_IRUSR | S_IWUSR, data->dir, data,
+	temp = debugfs_create_file("data", 0600, data->dir, data,
 				   &debug_data_fops);
 	if (temp == NULL || IS_ERR(temp)) {
 		pr_err("debugfs_create_file failed: rc=%ld\n", PTR_ERR(temp));
@@ -2565,7 +2565,7 @@ static int ft5x06_ts_probe(struct i2c_client *client,
 		goto free_debug_dir;
 	}
 
-	temp = debugfs_create_file("suspend", S_IRUSR | S_IWUSR, data->dir,
+	temp = debugfs_create_file("suspend", 0600, data->dir,
 					data, &debug_suspend_fops);
 	if (temp == NULL || IS_ERR(temp)) {
 		pr_err("debugfs_create_file failed: rc=%ld\n", PTR_ERR(temp));
@@ -2573,7 +2573,7 @@ static int ft5x06_ts_probe(struct i2c_client *client,
 		goto free_debug_dir;
 	}
 
-	temp = debugfs_create_file("dump_info", S_IRUSR | S_IWUSR, data->dir,
+	temp = debugfs_create_file("dump_info", 0600, data->dir,
 					data, &debug_dump_info_fops);
 	if (temp == NULL || IS_ERR(temp)) {
 		pr_err("debugfs_create_file failed: rc=%ld\n", PTR_ERR(temp));
