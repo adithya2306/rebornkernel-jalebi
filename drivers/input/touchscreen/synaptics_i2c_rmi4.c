@@ -3827,19 +3827,6 @@ static int synaptics_rmi4_probe(struct i2c_client *client,
 			goto err_sysfs;
 		}
 	}
-#ifdef SUPPORT_READ_TP_VERSION
-{
-	char tp_version[60] = {0};
-	sprintf(tp_version, "[fw]%08x,[ic]S2716",rmi4_data->firmware_config_id);
-	// printk("*%s:rmi4_data->f34_ctrl_base_addr =%0x \n",__func__,rmi4_data->f34_ctrl_base_addr);
-	if (rmi4_data->fw_cfg_id == 0x80012000) {
-		init_tp_fm_info(0, tp_version, "boyi");
-	} else {
-		init_tp_fm_info(0, tp_version, "DJ");
-	}
-	strcpy(g_Id_save,tp_version); //baron modify
-}
-#endif
 
 	synaptics_rmi4_sensor_wake(rmi4_data);
 

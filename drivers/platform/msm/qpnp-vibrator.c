@@ -450,11 +450,6 @@ static int qpnp_vibrator_probe(struct spmi_device *spmi)
 	return rc;
 }
 
-void vibrate(int strength)
-{
-        qpnp_vib_enable(&haxvib->timed_dev, strength);
-}
-
 static int qpnp_vibrator_remove(struct spmi_device *spmi)
 {
 	struct qpnp_vib *vib = dev_get_drvdata(&spmi->dev);

@@ -91,8 +91,7 @@ else ifeq ($(CONFIG_MACH_WINGTECH_MSM8916),y)
 dtb-$(CONFIG_ARCH_MSM8916) += msm8916-t86519a1.dtb
 else ifeq ($(CONFIG_MACH_YULONG_MSM8939),y)
 dtb-$(CONFIG_ARCH_MSM8916) += msm8939-cp8675-i01-p0.dtb
-
-ifeq ($(CONFIG_MACH_LENOVO_A6020),y)
+else ifeq ($(CONFIG_MACH_LENOVO_A6020),y)
 dtb-$(CONFIG_ARCH_MSM8916) += msm8939-qrd-wt82918.dtb \
         msm8939-qrd-wt82918hd.dtb \
         msm8939-v3.0-qrd-wt82918.dtb \

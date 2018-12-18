@@ -1376,6 +1376,7 @@ static int mdss_dsi_nt35596_read_status(struct mdss_dsi_ctrl_pdata *ctrl_pdata)
 		return 1;
 	}
 }
+#endif
 
 #ifdef CONFIG_MACH_CP8675
 static int mdss_dsi_yl_read_status(struct mdss_dsi_ctrl_pdata *ctrl_pdata)
@@ -2264,12 +2265,6 @@ static int mdss_panel_parse_dt(struct device_node *np,
 	mdss_dsi_parse_backlight_response_curve(np,
 			"qcom,panel-backlight-response-curve");
 #endif
-
-	mdss_dsi_parse_dcs_cmds(np, &ctrl_pdata->status_cmds,
-			"qcom,mdss-dsi-panel-status-command",
-				"qcom,mdss-dsi-panel-status-command-state");
-	rc = of_property_read_u32(np, "qcom,mdss-dsi-panel-status-value", &tmp);
-	ctrl_pdata->status_value = (!rc ? tmp : 0);
 
 	/*+req_LCD wuzhenzhen.wt, add, 2015/9/03,add LCD gamma control code*/
 #if 0	
