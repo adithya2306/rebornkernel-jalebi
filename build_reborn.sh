@@ -28,7 +28,7 @@ KERNEL_IMG=$KERNEL_DIR/out/arch/arm/boot/zImage
 DT_IMAGE=$KERNEL_DIR/out/arch/arm/boot/dt.img
 UPLOAD_DIR=$KERNEL_DIR/OUTPUT/$DEVICE
 DTBTOOL=$KERNEL_DIR/tools/dtbToolCM
-TOOLCHAIN=$KERNEL_DIR/../tc
+TOOLCHAIN=$KERNEL_DIR/tc
 
 # Export
 export ARCH=arm
@@ -37,11 +37,12 @@ export CROSS_COMPILE=$TOOLCHAIN/bin/arm-eabi-
 export KBUILD_BUILD_USER="ThePhoenix"
 export KBUILD_BUILD_USER="AllSpark"
 
+if [ ! -d "$TOOLCHAIN" ]; then git clone -b kek $TC_REPO $TOOLCHAIN; fi
+
 ## Functions ##
 
 # Make kernel
 function make_kernel() {
-  if [ ! -d "$TOOLCHAIN" ]; then git clone -b kek $TC_REPO $TOOLCHAIN; fi
   mkdir out
   echo -e "$cyan***********************************************"
   echo -e "          Initializing defconfig          "
