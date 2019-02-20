@@ -30,6 +30,7 @@
 #include <linux/preempt.h>
 #include <asm/processor.h>
 #include <asm/relaxed.h>
+#include <asm-generic/processor.h>
 
 /*
  * Version using sequence counter only.
