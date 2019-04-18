@@ -75,7 +75,6 @@ mkdir -p $UPLOAD_DIR
 cd $ANYKERNEL_DIR
 zip -r9 UPDATE-AnyKernel2.zip * -x README UPDATE-AnyKernel2.zip
 mv $ANYKERNEL_DIR/UPDATE-AnyKernel2.zip $UPLOAD_DIR/$FINAL_ZIP
-mv $ANYKERNEL_DIR/UPDATE-AnyKernel2.zip $UPLOAD_DIR/$FINAL_ZIP
 rm -rf $KERNEL_DIR/tmp_mod
 cd $UPLOAD_DIR
 }
